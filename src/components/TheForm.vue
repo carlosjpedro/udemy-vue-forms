@@ -91,6 +91,10 @@
       />
       <label for="confirm-terms">Do you agree with the terms of use?</label>
     </div>
+
+    <div class="form-group">
+      <rating-control v-model="rating" />
+    </div>
     <div>
       <button>Save Data</button>
     </div>
@@ -98,7 +102,11 @@
 </template>
 
 <script>
+import RatingControl from './RatingControl.vue';
 export default {
+  components: {
+    RatingControl,
+  },
   data() {
     return {
       userName: '',
@@ -107,6 +115,7 @@ export default {
       interest: [],
       how: null,
       confirmTerms: false,
+      rating: '',
     };
   },
   methods: {
@@ -117,12 +126,14 @@ export default {
       console.log('interest: ', this.interest);
       console.log('how: ', this.how);
       console.log('confirm: ', this.confirmTerms);
+      console.log('rating: ', this.rating);
       this.userName = '';
       this.userAge = null;
       this.referrer = 'wom';
       this.interest = [];
       this.how = null;
       this.confirmTerms = false;
+      this.rating = '';
     },
   },
 };
